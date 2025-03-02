@@ -108,7 +108,16 @@ export default function ImageUploader() {
   };
 
   const saveData = async () => {
-    const data = { images, boundingBoxes };
+    
+    const response = await fetch("http://localhost:5000/images",{
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }); 
+
+    let imgUrls = await response.json()
+    imgUrls = imgUrls.map(item => item.imageUrl);
+    
+    const data = { imgUrls, boundingBoxes };
     console.log("Sending data to API:", JSON.stringify(data));
     
     try {

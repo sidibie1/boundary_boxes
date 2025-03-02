@@ -37,7 +37,6 @@ export default function RetrieveImages() {
 
   return (
     <div className="retrieve-images-container">
-      <button onClick={fetchImagesAndBoundingBoxes} className="fetch-button">Retrieve Images</button>
       <div className="image-grid">
         {images.map(({ imageUrl }, index) => (
           <div key={index} className="image-item" onClick={() => handleImageClick(imageUrl)}>
