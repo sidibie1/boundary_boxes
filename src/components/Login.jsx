@@ -1,43 +1,62 @@
 import React, { useState } from "react";
+import "../App.css"; // Import external CSS file
 
-export default function Login(){
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        console.log("Logging in with", email, password);
-    };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-        <h2 className="text-xl font-bold mb-4">Login</h2>
-        <form onSubmit={handleLogin}>
-            <div className="mb-4">
-            <label className="block text-sm font-medium">Email</label>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2 border rounded"
-                required
-            />
-            </div>
-            <div className="mb-4">
-            <label className="block text-sm font-medium">Password</label>
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 border rounded"
-                required
-            />
-            </div>
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
-            Login
-            </button>
-        </form>
+      if (!response.ok){
+        alert("Invalid credentials");
+      }else{
+        window.location.href = "http://localhost:3000/upload"
+      }
+
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
+  const handleSignUp = () =>{
+     window.location.href = "http://localhost:3000/signup"
+  }
+
+  return (
+    <div className={"login-container"}>
+      <h5 className={"signup-corner"} onClick={()=>handleSignUp()}>Signup</h5>  
+      <h2 className={"login-title"}>Login</h2>
+      <form onSubmit={handleLogin} className={"login-form"}>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={"input-field"}
+            required
+          />
         </div>
-    );
-};
-  
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={"input-field"}
+            required
+          />
+        </div>
+        <button type="submit" className={"login-button"}>Submit</button>
+      </form>
+    </div>
+  );
+}

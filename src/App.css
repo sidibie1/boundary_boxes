@@ -1,38 +1,223 @@
-.App {
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.signup-corner {
+  margin-left: 90%;
+  margin-top: -2%;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.success-message {
+  color: green;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+}
+
+.login-button {
+  width: 99%;
+  padding: 18px 5px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background: #0056b3;
+}
+
+.image-uploader-container {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.file-input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.canvas-container {
+  position: relative;
+  display: inline-block;
+}
+
+.canvas {
+  border: 2px solid #000;
+  cursor: crosshair;
+}
+
+.button-group {
+  margin-top: 10px;
+}
+
+.nav-button,
+.save-button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-button {
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.save-button {
+  background-color: #28a745;
+  color: white;
 }
+
+.save-button:hover {
+  background-color: #1e7e34;
+}
+
+.signup-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.signup-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-field {
+  width: 94%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 22px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.signup-button:hover {
+  background: #218838;
+}
+
+/* RetrieveImages.css */
+
+.retrieve-images-container {
+  max-width: 900px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.fetch-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 20px;
+}
+
+.fetch-button:hover {
+  background-color: #0056b3;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.image-item {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.image-item:hover {
+  transform: scale(1.05);
+}
+
+.retrieved-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.image-item:hover .retrieved-image {
+  border: 2px solid #007bff;
+}
+
+.bounding-boxes-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
