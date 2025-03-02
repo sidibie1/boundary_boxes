@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../App.css"; // Import external CSS file
+import "../App.css";
 
 export default function SignUp() {
   

@@ -1,4 +1,5 @@
 import React, { useState,useRef,useEffect } from "react";
+import "../App.css";
 
 export default function ImageUploader() {
   //using state for images upload
