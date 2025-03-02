@@ -9,6 +9,7 @@ export default function Login() {
     e.preventDefault();
     
     try {
+      //Calling Login API 
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -18,6 +19,7 @@ export default function Login() {
       if (!response.ok){
         alert("Invalid credentials");
       }else{
+        //Direct to upload if login is true
         window.location.href = "http://localhost:3000/upload"
       }
 

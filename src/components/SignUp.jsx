@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../App.css"; // Import external CSS file
 
 export default function SignUp() {
+  
+  //State management for updating values for signup
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -9,12 +11,14 @@ export default function SignUp() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    //Checking for password match
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
     try {
+      //calling signup to register new user
       const response = await fetch("http://localhost:5000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

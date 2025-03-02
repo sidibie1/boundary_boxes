@@ -9,8 +9,9 @@ const App = () => {
   return (
     <Router>
       <div className="p-6">
-        <h1 className="font-bold" style={{marginLeft:"40%"}}>Image Cropper Tool</h1>
+        <h1 className="font-bold" style={{marginLeft:"40%"}}>Bounding Box Images</h1>
         <Routes>
+          {/* Following are the paths for the specific pages */}
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/upload" element={<ImageUploader />} />
